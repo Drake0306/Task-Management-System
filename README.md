@@ -122,8 +122,6 @@ Easily add a new task using the intuitive form.
 Update task details with a clean and modern edit form.
 ![Edit Task](screenshots/update.png)
 
-> **Note:** Replace the screenshot paths with your actual images in the `screenshots/` directory.
-
 ## Contributing
 
 Contributions, issues, and feature requests are welcome! Feel free to check the [issues page](https://github.com/Drake0306/Task-Management-System/issues).
