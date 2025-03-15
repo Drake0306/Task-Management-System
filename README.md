@@ -1,66 +1,138 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Task Management System
 
 <p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
+  <img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="200" alt="Laravel Logo">
 </p>
 
-## About Laravel
+## About This App
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Task Management System is a simple yet robust application built with **Laravel 12** and **Bootstrap 5**. It allows users to manage their tasks efficiently by providing:
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+- **User Management:** Register and log in to manage your tasks.
+- **Task CRUD:** Create, read, update, and delete tasks.
+- **Task Completion:** Mark tasks as completed with a single click.
+- **Task History:** Automatically log all task status changes.
+- **Event-Driven Actions:** Leverage Laravel events and background job processing.
+- **Modern UI:** Responsive, card-based design for a clean and user-friendly experience.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+This project was developed as an interview practical to demonstrate proper handling of the task lifecycle, event-driven actions, and background processing using queues.
 
-## Learning Laravel
+## Features
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+- **User Authentication:** Secure registration and login.
+- **Task Creation & Management:** Add new tasks, edit existing ones, and delete tasks.
+- **Status Updates:** Easily mark tasks as completed.
+- **History Tracking:** Automatic logging of task updates.
+- **Responsive Design:** Optimized for mobile and desktop viewing.
+- **Background Processing:** Use of Laravel queues for smooth operations.
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+## Tech Stack
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+- **Backend:** Laravel 12, PHP 8.2
+- **Frontend:** Blade Templates, Bootstrap 5
+- **Database:** MySQL (or your preferred database)
+- **Queue:** Database driver for background job processing
 
-## Laravel Sponsors
+## Setup and Installation
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+Follow these steps to set up the application on your local machine:
 
-### Premium Partners
+1. **Clone the Repository**
+   ```bash
+   git clone https://github.com/Drake0306/Task-Management-System.git
+   cd task-management-system
+   ```
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+2. **Install Composer Dependencies**
+   ```bash
+   composer install
+   ```
+
+3. **Install Node Dependencies and Compile Assets**
+   ```bash
+   npm install
+   npm run dev
+   ```
+   *(For production, use `npm run production`.)*
+
+4. **Configure Environment Variables**
+   - Copy the example environment file:
+     ```bash
+     cp .env.example .env
+     ```
+   - Update the `.env` file with your settings, especially the database credentials.
+
+   **Using Docker for MySQL:**
+   - If you don't have a MySQL server installed locally, you can use Docker. Navigate to the `mysql-docker` folder:
+     ```bash
+     cd mysql-docker
+     ```
+   - Start the MySQL container with:
+     ```bash
+     docker-compose up -d
+     ```
+   - Adjust the database settings in your `.env` file accordingly (host, port, username, password). Typically, the host will be `127.0.0.1` or the name of the Docker service if using Docker networking.
+
+5. **Generate Application Key**
+   ```bash
+   php artisan key:generate
+   ```
+
+6. **Run Database Migrations**
+   ```bash
+   php artisan migrate
+   ```
+
+## Running the Application
+
+Once the setup is complete, follow these steps to run the application:
+
+1. **Start the Laravel Development Server**
+   ```bash
+   php artisan serve
+   ```
+   The application will be accessible at [http://127.0.0.1:8000](http://127.0.0.1:8000).
+
+2. **Access the Application**
+   Open your browser and navigate to [http://127.0.0.1:8000](http://127.0.0.1:8000). From here, you can register or log in to manage your tasks.
+
+## Quick Explanation
+
+After logging in, you can create, edit, or delete tasks. The application supports marking tasks as completed, with each update automatically logged into the task history. The UI is built with Bootstrap 5 for a modern, responsive experience, and Laravel's event-driven features and background processing ensure smooth operations.
+
+## Demo Screens
+
+### Reg Page
+A quick look at the main Reg Page once you log in.
+![Dashboard](screenshots/reg.png)
+
+### Login Page
+A quick look at the main Login Page once you log in.
+![Dashboard](screenshots/login.png)
+
+### Task List
+View all your tasks in a modern, responsive table.
+![Task List](screenshots/list.png)
+
+### Create Task
+Easily add a new task using the intuitive form.
+![Create Task](screenshots/create.png)
+
+### Edit Task
+Update task details with a clean and modern edit form.
+![Edit Task](screenshots/update.png)
+
+> **Note:** Replace the screenshot paths with your actual images in the `screenshots/` directory.
 
 ## Contributing
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+Contributions, issues, and feature requests are welcome! Feel free to check the [issues page](https://github.com/Drake0306/Task-Management-System/issues).
 
 ## License
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+This project is licensed under the [MIT License](https://opensource.org/licenses/MIT).
+```
+
+---
+
+This README provides a detailed rundown on what the app does, how to set it up (including using Docker for the database), how to run it, and a quick explanation along with demo screen placeholders. Adjust paths or details as needed for your project.
